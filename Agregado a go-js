@@ -1,0 +1,53 @@
+Cógido Agregado al archivo go.js
+--------------------------------
+
+FLAG AGREGADO COMO VARIABLE GLOBAL
+var passedTurn = false;
+
+--------------------------------------------------------------------------------------------------------------
+MODIFICACIONES EN CUERPO DE FUNCIONES DEFINIDAS POR LA CATEDRA
+
+
+EN FUNCTION init()
+document.getElementById("passBtn").addEventListener('click', () => passedTurn? finDelJuego(): passTurn() );
+
+EN FUNCTION handleSuccess()
+
+//Get data de fin del juego
+    var black = response.data[0].Negro;
+    var white = response.data[0].Blanco;
+
+    if((black != undefined && white != undefined){
+        mostrarYLimpiar(black,white);
+    }
+    else{
+    	manejar éxito del predicado goMove + cambio de turno
+
+
+-----------------------------------------------------------------------------------------------------------------
+FUNCIONES AGREGADAS PARA COMPLETAR REQUISITOS DE FUNCIONALIDAD DE LA INTERFAZ Y SU VINCULO CON PROLOG
+
+function passTurn(){
+        passedTurn = true; 
+        switchTurn();  
+}
+
+function finDelJuego(){
+    
+    const s = "finDelJuego("+Pengine.stringify(gridData)+", Negro , Blanco)";
+
+    pengine.ask(s);
+
+}
+
+function mostrarYLimpiar(puntosNegro,puntosBlanco){
+
+    var ganador = (puntosNegro>=puntosBlanco)? "Negro" : "Blanco";
+
+    alert("GANADOR "+ganador+"\nNegro = "+puntosNegro+"\nBlanco = "+puntosBlanco);
+    
+    //Limpio el tablero y comienza un juego nuevo
+    turnBlack = false;
+    passedTurn = false;
+    pengine.ask('emptyBoard(Board)');
+}

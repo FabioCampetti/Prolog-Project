@@ -1,0 +1,3 @@
+1-Raise the server by running the .pl Prolog Project / run.pl in SWI prolog (for example, by running swipl Project Prolog / run.pl, or by double-clicking run.pl). The server will listen on port 3030 of localhost.
+2- Execute the file "Go Game", to play the game
+3- Enjoy it!
